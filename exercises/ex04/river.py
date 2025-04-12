@@ -1,10 +1,14 @@
 """File to define River class."""
 
+__author__: str = "730661635"
+
 from exercises.EX04.fish import Fish
 from exercises.EX04.bear import Bear
 
 
 class River:
+    """define river class"""
+
     day: int
     bears: list[Bear]
     fish: list[Fish]
@@ -21,11 +25,13 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
+        """Check ages of fish and bears"""
         self.fish = [fish for fish in self.fish if fish.age <= 3]
         self.bears = [bear for bear in self.bears if bear.age <= 5]
         return None
 
     def bears_eating(self):
+        """Remove fish and increase hunger score for bears"""
         for bear in self.bears:
             if len(self.fish) >= 5:
                 self.remove_fish(3)
@@ -33,20 +39,26 @@ class River:
         return None
 
     def check_hunger(self):
+        """Check hunger of bears"""
         self.bears = [bear for bear in self.bears if bear.hunger_score >= 0]
         return None
 
     def repopulate_fish(self):
-        for n in self.fish:
-            self.fish.append((n // 2) * 4)
+        """Repopulate the fish"""
+        n = (len(self.fish) // 2) * 4
+        for _ in range(0, n):
+            self.fish.append(Fish())
         return None
 
     def repopulate_bears(self):
-        for n in self.bears:
-            self.bears.append(n // 2)
+        """Repopulate the bears"""
+        n = len(self.bears) // 2
+        for _ in range(0, n):
+            self.bears.append(Bear())
         return None
 
     def view_river(self):
+        """View the current populations on a given day"""
         print(f"~~~ Day {self.day}: ~~~")
         print(f"Fish population: {len(self.fish)}")
         print(f"Bear population: {len(self.bears)}")
@@ -77,13 +89,13 @@ class River:
 
     def one_river_week(self):
         """Simulate one week of life in river"""
-        self.one_river_day
-        self.one_river_day
-        self.one_river_day
-        self.one_river_day
-        self.one_river_day
-        self.one_river_day
-        self.one_river_day
+        self.one_river_day()
+        self.one_river_day()
+        self.one_river_day()
+        self.one_river_day()
+        self.one_river_day()
+        self.one_river_day()
+        self.one_river_day()
         return None
 
     def remove_fish(self, amount: int):
