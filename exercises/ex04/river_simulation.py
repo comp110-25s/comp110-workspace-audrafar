@@ -1,4 +1,4 @@
-"""Construct a model of daily life in a river ecosystem"""
+"""Construct a model of daily life in a river ecosystem."""
 
 __author__: str = "730661635"
 
